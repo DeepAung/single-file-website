@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Info</title>
+
+    <!-- IMPORTS -->
+    <script
+      src="https://kit.fontawesome.com/8e504b9924.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- END -->
+
+    <!-- CSS CODE -->
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+
+        text-decoration: none;
+        list-style-type: none;
+        color: white;
+
+        transition: all 0.2s;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      h1 {
+        font-size: 6rem;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 6vw, 3rem);
+      }
+
+      h3 {
+        font-size: clamp(1rem, 2.6vw, 100rem);
+      }
+
+      p {
+        font-size: clamp(1rem, 1.7vw, 100rem);
+      }
+
+      a, span {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+      }
+
+      img {
+        display: block;
+      }
+
+      section {
+        padding: 3rem 1rem;
+        padding-top: calc(10vh + 3rem);
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .container {
+        height: 100%;
+      }
+
+      .head {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .scroll-top {
+        position: fixed;
+        top: -200%;
+        right: 3rem;
+        display: block;
+        border-radius: 50%;
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: rgb(173, 78, 232);
+        z-index: 100;
+
+        text-align: center;
+        font-size: 2rem;
+        padding: 0.65rem;
+      }
+
+      .active {
+        top: calc(100% - 5rem);
+      }
+
+      .invisible {
+        display: none;
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 10vh;
+        padding: 1rem 10%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        background-color: rgba(229, 236, 251, 0.5);
+        box-shadow: 0 0.2rem 0.5rem 0.005rem rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar:hover {
+        background-color: rgba(229, 236, 251, 0.8);
+        box-shadow: 0 0.2rem 1rem 0.05rem rgba(0, 0, 0, 0.7);
+      }
+
+      .navbar * {
+        color: black;
+      }
+
+      .navbar > i {
+        margin: auto 0;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .navbar > i:hover {
+        color: rgb(0, 0, 255);
+      }
+
+      .navbar > ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        width: clamp(26rem, 50%, 32rem);
+      }
+
+      .navbar > ul > li {
+        margin: auto;
+      }
+
+      .navbar > ul > li > a {
+        font-weight: 500;
+      }
+
+      .navbar > ul > li > a:hover {
+        font-weight: 700;
+        color: rgb(0, 0, 255);
+        text-decoration: underline;
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .home {
+        height: 100vh;
+      }
+
+      .home * {
+        color: white;
+      }
+
+      .home > .bg {
+        background: url("./img/bg.jpg");
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .home > .wrapper {
+        /* display: grid;
+        grid-template-columns: 1fr 1fr; */
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+      }
+
+      .home > .wrapper > .text-wrapper {
+        margin: auto;
+      }
+
+      .home > .wrapper > .text-wrapper > h2 {
+        font-family: "Roboto", sans-serif;
+        margin-left: 4rem;
+      }
+
+      .home > .wrapper > .text-wrapper > h2 > span {
+        color: rgb(130, 141, 255);
+        font-size: clamp(2rem, 6vw, 3rem);
+      }
+
+      .home > .wrapper > .img-wrapper {
+        margin: auto;
+      }
+
+      .home > .wrapper > .img-wrapper > img {
+        max-width: 30rem;
+        width: 60%;
+        border-radius: 50%;
+        margin: auto;
+      }
+
+      .home > .wrapper > .img-wrapper > img:hover {
+        /* box-shadow: 0 0 2rem 0.1rem grey; */
+        transform: scale(1.05);
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .about {
+        background: url("./img/me-taking-photo.jpg");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+      }
+
+      .about * {
+        color: black;
+      }
+
+      .about > .wrapper {
+        margin: 0 1rem;
+      }
+
+      .about > .wrapper > .text-wrapper {
+        margin: 2rem 5rem;
+        margin-left: auto;
+        display: flex;
+        height: 3.5rem;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 0.7rem;
+
+        width: 40vw;
+      }
+
+      .about > .wrapper > .text-wrapper > span {
+        color: rgb(73, 11, 189);
+        font-weight: 600;
+        width: 30%;
+        text-align: center;
+        margin: auto 0;
+        font-size: clamp(1.1rem, 2.8vw, 1.8rem);
+      }
+
+      .about > .wrapper > .text-wrapper > p {
+        color: rgb(42, 113, 227);
+        margin: auto 0;
+        font-size: clamp(1.1rem, 2.1vw, 1.5rem);
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .skills {
+        background: linear-gradient(90deg, rgb(148, 9, 195), rgb(73, 11, 189));
+        min-height: 100vh;
+      }
+
+      .skills > .skills-wrapper {
+        width: 80%;
+        min-height: 60vh;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 0.7rem;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem;
+        padding: 2rem;
+      }
+
+      .skills > .skills-wrapper > .skill {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+
+        background-color: black;
+        border-radius: 1rem;
+        padding: 1rem;
+      }
+
+      .skills > .skills-wrapper > .skill > img {
+        width: 40%;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+      }
+
+      .skills > .skills-wrapper > .skill > span {
+        font-family: "Fira Code", monospace;
+        font-size: clamp(1.2rem, 1.4vw, 2rem);
+        font-weight: 600;
+        display: block;
+        text-align: center;
+      }
+
+      .skills > .skills-wrapper > .skill:hover {
+        box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem rgba(35, 35, 35, 0.5);
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .education {
+        background: rgb(137, 198, 236);
+      }
+
+      .education * {
+        color: black;
+      }
+
+      .education > .wrapper {
+        margin: 0 5vw;
+      }
+
+      .education > .wrapper > .container {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        /* height: 15rem; */
+
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        margin-bottom: 2rem;
+        box-shadow: 0.1rem 0.1rem 0.5rem 0.05rem rgba(35, 35, 35, 0.3);
+      }
+
+      .education > .wrapper > .container:hover {
+        box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem rgba(35, 35, 35, 0.5);
+      }
+
+      .education > .wrapper > .container > .text-wrapper {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 1.6rem;
+      }
+
+      .education > .wrapper > .container > img {
+        width: 100%;
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      .contact {
+        background: rgb(17, 24, 85);
+      }
+
+      .contact * {
+        color: white;
+      }
+
+      .contact > .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact > .wrapper > .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+      }
+
+      .contact > .wrapper > .container > p {
+        font-size: 1.3rem;
+      }
+
+      .contact > .wrapper > .container > i {
+        margin: auto 1.5rem;
+      }
+
+      .contact > hr {
+        border: none;
+        border-top: 1px rgba(255, 255, 255, 0.8) solid;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact > .credit {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .contact > .credit > img {
+        display: inline;
+        height: 2rem;
+        border-radius: 50%;
+      }
+
+      .contact > .credit > a {
+        text-align: center;
+        margin: auto 0.5rem;
+      }
+
+      /* ------------------------------------------------------------------- */
+
+      @media only screen and (max-width: 900px) {
+        .skills > .skills-wrapper {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(4, 1fr);
+        }
+
+        .skills > .skills-wrapper > .skill > span {
+          font-size: clamp(1.1rem, 2.8vw, 2rem);
+        }
+
+        .about > .wrapper {
+          margin: 0 auto;
+        }
+
+        .about > .wrapper > .text-wrapper {
+          margin: 1.5rem auto;
+          width: 60vw;
+          min-width: 20rem;
+        }
+      }
+
+      @media only screen and (max-width: 900px) {
+        .education > .wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+        }
+
+        .education > .wrapper > .container {
+          grid-template-rows: 4fr 3fr;
+          grid-template-columns: 1fr;
+          width: 40%;
+        }
+
+        .education > .wrapper > .container > .text-wrapper {
+          text-align: center;
+        }
+      }
+
+      @media only screen and (max-width: 750px) {
+        .navbar {
+          justify-content: center;
+          padding: 1rem 5%;
+        }
+
+        .navbar > .code-icon {
+          display: none;
+        }
+
+        .navbar > .bars-icon {
+          font-size: 1rem;
+        }
+
+        .home > .wrapper {
+          display: block;
+        }
+
+        .home > .wrapper > .text-wrapper > h2 {
+          text-align: center;
+          margin: 0;
+        }
+
+        .home > .wrapper > .img-wrapper {
+          margin: 2rem auto;
+        }
+
+        .home > .wrapper > .img-wrapper > img {
+          max-width: 20rem;
+        }
+
+        .education > .wrapper {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .education > .wrapper > .container {
+          width: 60%;
+        }
+
+        .contact > .wrapper {
+          display: block;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .skills > .skills-wrapper {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(8, 1fr);
+        }
+
+        .skills > .skills-wrapper > .skill {
+          height: 50vw;
+        }
+
+        .skills > .skills-wrapper > .skill > span {
+          font-size: clamp(1rem, 5.5vw, 2rem);
+        }
+      }
+    </style>
+    <!-- END -->
+
+    <!-- JAVASCRIPT CODE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(() => {
+        // for navbar
+        let navbarContentIsShow = true;
+
+        let offset = $("#me-img").offset();
+        let width = $("#me-img").width();
+        let height = $("#me-img").height();
+        let elmX = offset.left + width / 2;
+        let elmY = offset.top + height / 2;
+
+        // for #skills-wrapper
+
+        $("#bars-icon").click(() => {
+          $("#navbar-content").fadeToggle(500);
+        });
+
+        $("#me-img")
+          .mouseenter(() => {
+            offset = $("#me-img").offset();
+            width = $("#me-img").width();
+            height = $("#me-img").height();
+            elmX = offset.left + width / 2;
+            elmY = offset.top + height / 2;
+          })
+          .mouseleave(() => {
+            $("#me-img").css("box-shadow", "none");
+          });
+
+        $("#me-img").mousemove((e) => {
+          let deltaX = e.pageX - elmX;
+          let deltaY = e.pageY - elmY;
+
+          $("#me-img").css(
+            "box-shadow",
+            `${-deltaX / 200}rem ${-deltaY / 200}rem 1.5rem 0.1rem white`
+          );
+        });
+      });
+    </script>
+    <!-- END -->
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <i class="code-icon fa-solid fa-code" id="code-icon"></i>
+        <ul id="navbar-content">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <i class="bars-icon fa-solid fa-bars" id="bars-icon"></i>
+      </nav>
+
+      <!--  -->
+
+      <section class="home" id="home">
+        <div class="bg"></div>
+        <div class="wrapper">
+          <div class="text-wrapper">
+            <h2>
+              Hello, I'm<br />
+              <span>Ashira</span> Aungsumal
+            </h2>
+          </div>
+          <div class="img-wrapper">
+            <img src="./img/me.jpg" alt="" id="me-img" />
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+
+      <section class="about" id="about">
+        <h2 class="head">About Me</h2>
+        <div class="wrapper">
+          <div class="text-wrapper">
+            <span>Name</span>
+            <p>Ashira Aungsumal</p>
+          </div>
+          <div class="text-wrapper">
+            <span>Age</span>
+            <p>16</p>
+          </div>
+          <div class="text-wrapper">
+            <span>Email</span>
+            <p>i.deepaung@gmail.com</p>
+          </div>
+          <div class="text-wrapper">
+            <span>Phone</span>
+            <p>086-075-1345</p>
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+
+      <section class="skills" id="skills">
+        <h2 class="head">My Skills</h2>
+        <div class="skills-wrapper" id="skills-wrapper">
+          <div class="skill">
+            <img src="./img/logo/html-logo.png" alt="" />
+            <span>HTML</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/css-logo.png" alt="" />
+            <span>CSS</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/js-logo.png" alt="" />
+            <span>JavaScript</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/jquery-logo.png" alt="" />
+            <span>JQuery</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/python-logo.png" alt="" />
+            <span>Python</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/c-logo.png" alt="" />
+            <span>C</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/cpp-logo.png" alt="" />
+            <span>C++</span>
+          </div>
+          <div class="skill">
+            <img src="./img/logo/github-logo.png" alt="" />
+            <span>GitHub</span>
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+
+      <section class="education" id="education">
+        <h2 class="head">My Education</h2>
+        <div class="wrapper">
+          <div class="container">
+            <img src="./img/school/rnk-school.jpg" alt="" />
+            <div class="text-wrapper">
+              <h3>Rajavinit Prathom Bangkae School</h3>
+              <p>Grade 1 - 6</p>
+            </div>
+          </div>
+          <div class="container">
+            <img src="./img/school/debsirin-school.jpg" alt="" />
+            <div class="text-wrapper">
+              <h3>Debsirin School</h3>
+              <p>Grade 7 - 11(current)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+
+      <section class="contact" id="contact">
+        <h2 class="head">Contact Me</h2>
+        <div class="wrapper">
+          <div class="container">
+            <!-- <img src="./img/contact-icon/phone.png" alt=""> -->
+            <i class="fa-solid fa-2x fa-phone"></i>
+            <p>086-075-1345</p>
+          </div>
+          <div class="container">
+            <i class="fa-solid fa-2x fa-envelope"></i>
+            <p>i.deepaung@gmail.com</p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="credit">
+          <a href="http://www.freepik.com">Designed by Freepik | </a>
+          <img src="./img/freepik.jpg" alt="" />
+        </div>
+      </section>
+
+      <!--  -->
+
+      <a
+        href="#home"
+        class="scroll-top active fa-solid fa-angle-up"
+        id="scroll-top"
+      ></a>
+    </div>
+
+    <!-- check if font awesome works -->
+    <!-- <script>
+      window.onload = function () {
+        var span = document.createElement('span');
+      
+        span.className = 'fa';
+        span.style.display = 'none';
+        document.body.insertBefore(span, document.body.firstChild);
+        
+        alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
+          
+        document.body.removeChild(span);
+      };
+      </script> -->
+  </body>
+</html>

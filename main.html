@@ -29,6 +29,14 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- END -->
 
     <!-- CSS CODE -->
@@ -45,6 +53,10 @@
 
         transition: all 0.2s;
         scroll-behavior: smooth;
+      }
+
+      i {
+        font-family: sans-serif;
       }
 
       body {
@@ -67,7 +79,8 @@
         font-size: clamp(1rem, 1.7vw, 100rem);
       }
 
-      a, span {
+      a,
+      span {
         font-size: clamp(1rem, 3vw, 1.2rem);
       }
 
@@ -77,7 +90,7 @@
 
       section {
         padding: 3rem 1rem;
-        padding-top: calc(10vh + 3rem);
+        padding-top: calc(10vh + 1rem);
       }
 
       /* ------------------------------------------------------------------- */
@@ -147,6 +160,7 @@
         margin: auto 0;
         font-size: 2rem;
         cursor: pointer;
+        /* font-family: sans-serif; */
       }
 
       .navbar > i:hover {
@@ -158,7 +172,12 @@
         flex-direction: row;
         justify-content: space-between;
 
-        width: clamp(26rem, 50%, 32rem);
+        width: clamp(26rem, 70%, 40rem);
+      }
+
+      .navbar > ul * {
+        /* font-family: "Staatliches", cursive; */
+        font-family: 'Work Sans', sans-serif;
       }
 
       .navbar > ul > li {
@@ -167,10 +186,11 @@
 
       .navbar > ul > li > a {
         font-weight: 500;
+        font-size: clamp(0.9rem, 2.6vw, 1.5rem);
       }
 
       .navbar > ul > li > a:hover {
-        font-weight: 700;
+        font-weight: 600;
         color: rgb(0, 0, 255);
         text-decoration: underline;
       }
@@ -178,47 +198,46 @@
       /* ------------------------------------------------------------------- */
 
       .home {
-        height: 100vh;
+        min-height: 100vh;
+        background: url("./img/bg.jpg");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+        display: flex;
       }
 
       .home * {
         color: white;
       }
 
-      .home > .bg {
-        background: url("./img/bg.jpg");
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-      }
-
       .home > .wrapper {
-        /* display: grid;
-        grid-template-columns: 1fr 1fr; */
         display: flex;
         justify-content: space-around;
-        height: 100%;
+        width: 100%;
       }
 
       .home > .wrapper > .text-wrapper {
         margin: auto;
       }
 
-      .home > .wrapper > .text-wrapper > h2 {
+      .home > .wrapper > .text-wrapper h2 {
         font-family: "Roboto", sans-serif;
         margin-left: 4rem;
       }
 
-      .home > .wrapper > .text-wrapper > h2 > span {
+      .home > .wrapper > .text-wrapper h2 span {
         color: rgb(130, 141, 255);
         font-size: clamp(2rem, 6vw, 3rem);
+      }
+
+      .home > .wrapper > .text-wrapper > h2 > .inner {
+        font-size: 0.7em;
+      }
+
+      .home > .wrapper > .text-wrapper > h2 > .inner * {
+        font-size: 1em;
       }
 
       .home > .wrapper > .img-wrapper {
@@ -233,7 +252,6 @@
       }
 
       .home > .wrapper > .img-wrapper > img:hover {
-        /* box-shadow: 0 0 2rem 0.1rem grey; */
         transform: scale(1.05);
       }
 
@@ -244,7 +262,7 @@
         background-position: top;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 100vh;
+        min-height: 100vh;
       }
 
       .about * {
@@ -294,6 +312,7 @@
         margin: auto;
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 0.7rem;
+        overflow: hidden;
 
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -314,6 +333,14 @@
         padding: 1rem;
       }
 
+      .skills > .skills-wrapper > .skill:hover {
+        background-color: rgb(215, 229, 240);
+      }
+
+      .skills > .skills-wrapper > .skill:hover > span {
+        color: rgb(27, 35, 109);
+      }
+
       .skills > .skills-wrapper > .skill > img {
         width: 40%;
         margin: 0 auto;
@@ -328,14 +355,11 @@
         text-align: center;
       }
 
-      .skills > .skills-wrapper > .skill:hover {
-        box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem rgba(35, 35, 35, 0.5);
-      }
-
       /* ------------------------------------------------------------------- */
 
       .education {
         background: rgb(137, 198, 236);
+        min-height: 100vh;
       }
 
       .education * {
@@ -343,7 +367,11 @@
       }
 
       .education > .wrapper {
-        margin: 0 5vw;
+        /* margin: 0 5vw; */
+        margin: auto;
+        margin-top: 5rem;
+        width: 70vw;
+        min-width: 50rem;
       }
 
       .education > .wrapper > .container {
@@ -417,15 +445,22 @@
         justify-content: center;
       }
 
-      .contact > .credit > img {
+      .contact > .credit > a {
+        display: flex;
+      }
+
+      .contact > .credit > a > img {
         display: inline;
         height: 2rem;
         border-radius: 50%;
       }
 
-      .contact > .credit > a {
+      .contact > .credit > a > p {
+        display: inline;
         text-align: center;
+        justify-content: center;
         margin: auto 0.5rem;
+        font-size: inherit;
       }
 
       /* ------------------------------------------------------------------- */
@@ -435,27 +470,26 @@
           grid-template-columns: 1fr 1fr;
           grid-template-rows: repeat(4, 1fr);
         }
-
+  
         .skills > .skills-wrapper > .skill > span {
           font-size: clamp(1.1rem, 2.8vw, 2rem);
         }
-
+  
         .about > .wrapper {
           margin: 0 auto;
         }
-
+  
         .about > .wrapper > .text-wrapper {
           margin: 1.5rem auto;
           width: 60vw;
-          min-width: 20rem;
+          min-width: 18rem;
         }
-      }
 
-      @media only screen and (max-width: 900px) {
         .education > .wrapper {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+          min-width: 44rem;
         }
 
         .education > .wrapper > .container {
@@ -503,10 +537,12 @@
         .education > .wrapper {
           flex-direction: column;
           align-items: center;
+          min-width: 0;
         }
 
         .education > .wrapper > .container {
           width: 60%;
+          min-width: 15rem;
         }
 
         .contact > .wrapper {
@@ -515,9 +551,17 @@
       }
 
       @media only screen and (max-width: 500px) {
+        .navbar > i {
+          display: none;
+        }
+        
         .skills > .skills-wrapper {
           grid-template-columns: 1fr;
           grid-template-rows: repeat(8, 1fr);
+          max-width: 17rem;
+          padding: 4vw;
+          row-gap: 4vw;
+          column-gap: 4vw;
         }
 
         .skills > .skills-wrapper > .skill {
@@ -535,42 +579,113 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
       $(document).ready(() => {
-        // for navbar
-        let navbarContentIsShow = true;
+        let updatePos = (obj, objName) => {
+          let offset = $(objName).offset();
+          let width = $(objName).width();
+          let height = $(objName).height();
+          obj.elmX = offset.left + width / 2;
+          obj.elmY = offset.top + height / 2;
+        };
 
-        let offset = $("#me-img").offset();
-        let width = $("#me-img").width();
-        let height = $("#me-img").height();
-        let elmX = offset.left + width / 2;
-        let elmY = offset.top + height / 2;
+        let meImg = {};
+        updatePos(meImg, "#me-img");
 
-        // for #skills-wrapper
+        let skillList = Array(8);
+        for (let i = 0; i < 8; i++) {
+          let temp = $(".skill")[i];
+          skillList[i] = {};
+          updatePos(skillList[i], `#skill${i}`);
+        }
 
+        let skillIsHover = false;
+
+        // --------------------------------------------- //
+
+        // navbar toggle
         $("#bars-icon").click(() => {
           $("#navbar-content").fadeToggle(500);
         });
 
+        // me image at home
         $("#me-img")
           .mouseenter(() => {
-            offset = $("#me-img").offset();
-            width = $("#me-img").width();
-            height = $("#me-img").height();
-            elmX = offset.left + width / 2;
-            elmY = offset.top + height / 2;
+            updatePos(meImg, "#me-img");
           })
           .mouseleave(() => {
             $("#me-img").css("box-shadow", "none");
+          })
+          .mousemove((e) => {
+            let deltaX = e.pageX - meImg.elmX;
+            let deltaY = e.pageY - meImg.elmY;
+
+            $("#me-img").css(
+              "box-shadow",
+              `${-deltaX / 200}rem ${
+                -deltaY / 200
+              }rem 1.5rem 0.1rem rgba(255, 255, 255, 0.7)`
+            );
           });
 
-        $("#me-img").mousemove((e) => {
-          let deltaX = e.pageX - elmX;
-          let deltaY = e.pageY - elmY;
+        // skill7 (github-icon)
+        $("#skill7")
+          .mouseenter(() => {
+            $("#github-logo").attr("src", "./img/logo/github-logo-hover.png");
+          })
+          .mouseleave(() => {
+            $("#github-logo").attr("src", "./img/logo/github-logo.png");
+          });
 
-          $("#me-img").css(
-            "box-shadow",
-            `${-deltaX / 200}rem ${-deltaY / 200}rem 1.5rem 0.1rem white`
-          );
-        });
+        $(".skill")
+          .mouseenter(() => {
+            skillIsHover = true;
+            for (let i = 0; i < 8; i++) {
+              $(`#skill${i}`).css("box-shadow", "none");
+            }
+          })
+          .mouseleave(() => {
+            skillIsHover = false;
+          });
+
+        // skill 8 element
+        for (let i = 0; i < 8; i++) {
+          let objName = "#skill" + i;
+          $(objName).mousemove((e) => {
+            let deltaX = e.pageX - skillList[i].elmX;
+            let deltaY = e.pageY - skillList[i].elmY;
+
+            $(objName).css(
+              "box-shadow",
+              `${deltaX / 200}rem ${
+                deltaY / 200
+              }rem 1.5rem 0.1rem rgba(0, 0, 0, 0.5) inset`
+            );
+          });
+        }
+
+        // skills wrapper
+        $(".skills-wrapper")
+          .mouseenter(() => {
+            for (let i = 0; i < 8; i++) updatePos(skillList[i], `#skill${i}`);
+          })
+          .mouseleave(() => {
+            for (let i = 0; i < 8; i++)
+              $(`#skill${i}`).css("box-shadow", "none");
+          })
+          .mousemove((e) => {
+            if (skillIsHover) return;
+
+            for (let i = 0; i < 8; i++) {
+              let deltaX = e.pageX - skillList[i].elmX;
+              let deltaY = e.pageY - skillList[i].elmY;
+
+              $(`#skill${i}`).css(
+                "box-shadow",
+                `${-deltaX / 100}rem ${
+                  -deltaY / 100
+                }rem 1.5rem 0.1rem rgba(0, 0, 0, 0.5)`
+              );
+            }
+          });
       });
     </script>
     <!-- END -->
@@ -593,12 +708,12 @@
       <!--  -->
 
       <section class="home" id="home">
-        <div class="bg"></div>
         <div class="wrapper">
           <div class="text-wrapper">
             <h2>
               Hello, I'm<br />
-              <span>Ashira</span> Aungsumal
+              <span>Ashira</span> Aungsumal <br />
+              <div class="inner">You can call me <span>Deep</span></div>
             </h2>
           </div>
           <div class="img-wrapper">
@@ -636,36 +751,36 @@
       <section class="skills" id="skills">
         <h2 class="head">My Skills</h2>
         <div class="skills-wrapper" id="skills-wrapper">
-          <div class="skill">
+          <div class="skill" id="skill0">
             <img src="./img/logo/html-logo.png" alt="" />
             <span>HTML</span>
           </div>
-          <div class="skill">
+          <div class="skill" id="skill1">
             <img src="./img/logo/css-logo.png" alt="" />
             <span>CSS</span>
           </div>
-          <div class="skill">
+          <div class="skill" id="skill2">
             <img src="./img/logo/js-logo.png" alt="" />
             <span>JavaScript</span>
           </div>
-          <div class="skill">
+          <div class="skill" id="skill3">
             <img src="./img/logo/jquery-logo.png" alt="" />
             <span>JQuery</span>
           </div>
-          <div class="skill">
+          <div class="skill" id="skill4">
             <img src="./img/logo/python-logo.png" alt="" />
             <span>Python</span>
           </div>
-          <div class="skill">
+          <div class="skill" id="skill5">
             <img src="./img/logo/c-logo.png" alt="" />
             <span>C</span>
           </div>
-          <div class="skill">
+          <div class="skill" id="skill6">
             <img src="./img/logo/cpp-logo.png" alt="" />
             <span>C++</span>
           </div>
-          <div class="skill">
-            <img src="./img/logo/github-logo.png" alt="" />
+          <div class="skill" id="skill7">
+            <img id="github-logo" src="./img/logo/github-logo.png" alt="" />
             <span>GitHub</span>
           </div>
         </div>
@@ -712,8 +827,10 @@
         <hr />
 
         <div class="credit">
-          <a href="http://www.freepik.com">Designed by Freepik | </a>
-          <img src="./img/freepik.jpg" alt="" />
+          <a href="http://www.freepik.com"
+            ><p>Designed by Freepik |</p>
+            <img src="./img/freepik.jpg" alt=""
+          /></a>
         </div>
       </section>
 

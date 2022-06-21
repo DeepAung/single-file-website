@@ -249,6 +249,7 @@
         width: 60%;
         border-radius: 50%;
         margin: auto;
+        transition: none;
       }
 
       .home > .wrapper > .img-wrapper > img:hover {
@@ -583,8 +584,8 @@
           let offset = $(objName).offset();
           let width = $(objName).width();
           let height = $(objName).height();
-          obj.elmX = offset.left + width / 2;
-          obj.elmY = offset.top + height / 2;
+          obj.elmX = Math.round(offset.left + width / 2);
+          obj.elmY = Math.round(offset.top + height / 2);
         };
 
         let meImg = {};

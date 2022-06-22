@@ -11,10 +11,6 @@
       src="https://kit.fontawesome.com/8e504b9924.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -107,22 +103,24 @@
 
       .scroll-top {
         position: fixed;
-        top: -200%;
+        bottom: 300%;
         right: 3rem;
         display: block;
         border-radius: 50%;
-        width: 3.5rem;
-        height: 3.5rem;
-        background-color: rgb(173, 78, 232);
+        width: 3rem;
+        height: 3rem;
+        background-color: rgb(144, 47, 234);
         z-index: 100;
 
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
         padding: 0.65rem;
+
+        transition: all 1.5s;
       }
 
       .active {
-        top: calc(100% - 5rem);
+        bottom: 4rem;
       }
 
       .invisible {
@@ -160,7 +158,6 @@
         margin: auto 0;
         font-size: 2rem;
         cursor: pointer;
-        /* font-family: sans-serif; */
       }
 
       .navbar > i:hover {
@@ -176,8 +173,7 @@
       }
 
       .navbar > ul * {
-        /* font-family: "Staatliches", cursive; */
-        font-family: 'Work Sans', sans-serif;
+        font-family: "Work Sans", sans-serif;
       }
 
       .navbar > ul > li {
@@ -213,8 +209,10 @@
       }
 
       .home > .wrapper {
-        display: flex;
-        justify-content: space-around;
+        /* display: flex;
+        justify-content: space-around; */
+        display: grid;
+        grid-template-columns: 5fr 4fr;
         width: 100%;
       }
 
@@ -245,8 +243,7 @@
       }
 
       .home > .wrapper > .img-wrapper > img {
-        max-width: 30rem;
-        width: 60%;
+        width: clamp(16rem, 60%, 33rem);
         border-radius: 50%;
         margin: auto;
         transition: none;
@@ -260,7 +257,7 @@
 
       .about {
         background: url("./img/me-taking-photo.jpg");
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         min-height: 100vh;
@@ -321,6 +318,7 @@
         column-gap: 2rem;
         row-gap: 2rem;
         padding: 2rem;
+        transition: none;
       }
 
       .skills > .skills-wrapper > .skill {
@@ -332,6 +330,7 @@
         background-color: black;
         border-radius: 1rem;
         padding: 1rem;
+        transition: none;
       }
 
       .skills > .skills-wrapper > .skill:hover {
@@ -378,7 +377,6 @@
       .education > .wrapper > .container {
         border-radius: 0.5rem;
         overflow: hidden;
-        /* height: 15rem; */
 
         display: grid;
         grid-template-columns: 1fr 3fr;
@@ -387,7 +385,7 @@
       }
 
       .education > .wrapper > .container:hover {
-        box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem rgba(35, 35, 35, 0.5);
+        box-shadow: 0.2rem 0.2rem 0.8rem 0.15rem rgba(35, 35, 35, 0.5);
       }
 
       .education > .wrapper > .container > .text-wrapper {
@@ -396,10 +394,18 @@
         flex-direction: column;
         justify-content: space-around;
         padding: 0 1.6rem;
+        z-index: 1000;
       }
 
       .education > .wrapper > .container > img {
         width: 100%;
+        mix-blend-mode: soft-light;
+      }
+
+      .education > .wrapper > .container:hover > img {
+        mix-blend-mode: normal;
+        transform: scale(1.05);
+        overflow: hidden;
       }
 
       /* ------------------------------------------------------------------- */
@@ -471,15 +477,15 @@
           grid-template-columns: 1fr 1fr;
           grid-template-rows: repeat(4, 1fr);
         }
-  
+
         .skills > .skills-wrapper > .skill > span {
           font-size: clamp(1.1rem, 2.8vw, 2rem);
         }
-  
+
         .about > .wrapper {
           margin: 0 auto;
         }
-  
+
         .about > .wrapper > .text-wrapper {
           margin: 1.5rem auto;
           width: 60vw;
@@ -533,6 +539,8 @@
 
         .home > .wrapper > .img-wrapper > img {
           max-width: 20rem;
+          width: 90%;
+          min-width: 0rem;
         }
 
         .education > .wrapper {
@@ -546,6 +554,10 @@
           min-width: 15rem;
         }
 
+        .education > .wrapper > .container > img {
+          mix-blend-mode: normal;
+        }
+
         .contact > .wrapper {
           display: block;
         }
@@ -555,7 +567,7 @@
         .navbar > i {
           display: none;
         }
-        
+
         .skills > .skills-wrapper {
           grid-template-columns: 1fr;
           grid-template-rows: repeat(8, 1fr);
@@ -601,6 +613,17 @@
         let skillIsHover = false;
 
         // --------------------------------------------- //
+
+        // scroll top
+        $(window).on("scroll load", () => {
+          
+          if (window.scrollY > 0) {
+            $("#scroll-top").addClass("active");
+          } else {
+            $("#scroll-top").removeClass("active");
+          }
+
+        })
 
         // navbar toggle
         $("#bars-icon").click(() => {
@@ -706,7 +729,7 @@
         <i class="bars-icon fa-solid fa-bars" id="bars-icon"></i>
       </nav>
 
-      <!--  -->
+      <!-- ----------------------------------------------------------- -->
 
       <section class="home" id="home">
         <div class="wrapper">
@@ -723,7 +746,7 @@
         </div>
       </section>
 
-      <!--  -->
+      <!-- ----------------------------------------------------------- -->
 
       <section class="about" id="about">
         <h2 class="head">About Me</h2>
@@ -747,7 +770,7 @@
         </div>
       </section>
 
-      <!--  -->
+      <!-- ----------------------------------------------------------- -->
 
       <section class="skills" id="skills">
         <h2 class="head">My Skills</h2>
@@ -787,7 +810,7 @@
         </div>
       </section>
 
-      <!--  -->
+      <!-- ----------------------------------------------------------- -->
 
       <section class="education" id="education">
         <h2 class="head">My Education</h2>
@@ -809,13 +832,12 @@
         </div>
       </section>
 
-      <!--  -->
+      <!-- ----------------------------------------------------------- -->
 
       <section class="contact" id="contact">
         <h2 class="head">Contact Me</h2>
         <div class="wrapper">
           <div class="container">
-            <!-- <img src="./img/contact-icon/phone.png" alt=""> -->
             <i class="fa-solid fa-2x fa-phone"></i>
             <p>086-075-1345</p>
           </div>
@@ -835,7 +857,7 @@
         </div>
       </section>
 
-      <!--  -->
+      <!-- ----------------------------------------------------------- -->
 
       <a
         href="#home"
@@ -843,20 +865,5 @@
         id="scroll-top"
       ></a>
     </div>
-
-    <!-- check if font awesome works -->
-    <!-- <script>
-      window.onload = function () {
-        var span = document.createElement('span');
-      
-        span.className = 'fa';
-        span.style.display = 'none';
-        document.body.insertBefore(span, document.body.firstChild);
-        
-        alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
-          
-        document.body.removeChild(span);
-      };
-      </script> -->
   </body>
 </html>
